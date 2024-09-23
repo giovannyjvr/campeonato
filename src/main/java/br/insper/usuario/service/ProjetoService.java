@@ -45,9 +45,21 @@ public class ProjetoService {
         Projeto projeto = projetoRepository.findById(projetoId)
                 .orElseThrow(() -> new IllegalArgumentException("Projeto não encontrado"));
 
-        if (projeto.getStatus() ==  Status.FINALIZADO) {
-            throw new IllegalStateException("Não é possível adicionar pessoas a projetos finalizados");
+        // Supondo que projeto.getStatus() retorne uma String
+        String statusString = String.valueOf(projeto.getStatus());
+
+        try {
+            // Converte a String para a enum Status
+            Status statusEnum = Status.valueOf(statusString);
+
+            // Agora faz a comparação
+            if (statusEnum == Status.FINALIZADO) {
+                // Código para quando o status é FINALIZADO
+            }
+        } catch (IllegalArgumentException e) {
+            System.out.println("O valor da string não corresponde a nenhum valor de Status.");
         }
+
 
         projeto.getMembros().add(cpfPessoa);
         return projetoRepository.save(projeto);
