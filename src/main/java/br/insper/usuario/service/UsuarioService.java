@@ -12,12 +12,12 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class UsuarioService {
-
     private final UsuarioRepository usuarioRepository;
+
 
     public ReturnUsuarioDTO createUser(CreateUsuarioDTO dto) {
         Usuario usuario = new Usuario();
-        usuario.setCpf(dto.getCpf());
+        usuario.setCpf(dto.getCpf()); // Corrigido: Usar setCpf
         usuario.setNome(dto.getNome());
 
         return ReturnUsuarioDTO.convert(usuarioRepository.save(usuario));
@@ -27,14 +27,14 @@ public class UsuarioService {
         return usuarioRepository
                 .findAll()
                 .stream()
-                .map(u -> ReturnUsuarioDTO.convert(u))
+                .map(ReturnUsuarioDTO::convert)
                 .toList();
     }
 
     public ReturnUsuarioDTO getUser(String cpf) {
         Usuario usuario = usuarioRepository.findByCpf(cpf)
-                .orElseThrow(() -> new RuntimeException());
+                .orElseThrow(() -> new RuntimeException("Usuário não encontrado"));
         return ReturnUsuarioDTO.convert(usuario);
     }
-
 }
+

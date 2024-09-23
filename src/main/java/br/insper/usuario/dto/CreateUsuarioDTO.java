@@ -11,4 +11,12 @@ public class CreateUsuarioDTO {
     private String nome;
     @NotEmpty
     private String cpf;
+
+    public Object getNome() {
+        return null;
+    }
+
+    public Object getCpf() {
+        return null;
+    }
 }

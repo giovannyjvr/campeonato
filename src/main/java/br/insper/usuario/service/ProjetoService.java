@@ -45,7 +45,7 @@ public class ProjetoService {
         Projeto projeto = projetoRepository.findById(projetoId)
                 .orElseThrow(() -> new IllegalArgumentException("Projeto não encontrado"));
 
-        if (projeto.getStatus() == Status.FINALIZADO) {
+        if (projeto.getStatus() ==  Status.FINALIZADO) {
             throw new IllegalStateException("Não é possível adicionar pessoas a projetos finalizados");
         }
 

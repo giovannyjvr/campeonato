@@ -1,9 +1,11 @@
-
 package br.insper.usuario.model;
 
+import jakarta.persistence.*;
 import lombok.Data;
-import javax.persistence.*;
+
+// import javax.persistence.*;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -23,10 +25,18 @@ public class Projeto {
 
     @ElementCollection
     private Set<String> membros = new HashSet<>();
+
+    public String getCpfGerente() {
+        return cpfGerente;
+    }
+
+    public boolean getStatus() {
+        return status.equals(Status.ATIVO);
+    }
+
+    public <E> List<E> getMembros() {
+        return (List<E>) membros;
+    }
 }
 
-enum Status {
-    PLANEJAMENTO,
-    EXECUCAO,
-    FINALIZADO
-}
+

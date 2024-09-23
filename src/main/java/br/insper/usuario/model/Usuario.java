@@ -15,4 +15,20 @@ public class Usuario {
     private String nome;
     @Column(unique = true)
     private String cpf;
+
+    public void setNome(Object nome) {
+
+    }
+
+    public Object getCpf() {
+
+        return null;
+    }
+
+    public void setCpf(Object cpf) {
+    }
+
+    public Object getNome() {
+        return null;
+    }
 }

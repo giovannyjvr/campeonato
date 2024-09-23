@@ -16,4 +16,12 @@ public class ReturnUsuarioDTO {
         dto.setNome(usuario.getNome());
         return dto;
     }
+
+    private void setCpf(Object cpf) {
+
+    }
+
+    private void setNome(Object nome) {
+
+    }
 }
