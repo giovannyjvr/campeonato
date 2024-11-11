@@ -10,9 +10,9 @@
 	</parent>
 
 	<groupId>br.insper</groupId>
-	<artifactId>giovannySimulado</artifactId>
+	<artifactId>usuario</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>giovannySimulado</name>
+	<name>usuario</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
